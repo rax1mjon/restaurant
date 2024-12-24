@@ -5,3 +5,144 @@
 @use "../layout/forms" as form;
 @use "../layout/flex" as flex;
 @use "../components/dropdown" as drop;
+
+.form {
+  padding: 120px 0;
+
+  &--head {
+    margin-bottom: 60px;
+    gap: 8px;
+
+    svg {
+      fill: var(--bg-bb);
+      transform: rotate(180deg);
+    }
+
+    h2 {
+      @include mix.text(var(--bg-24), 64px, 500, 83px, 0.03em);
+
+      @media (max-width: 500px) {
+        font-size: 32px;
+        line-height: 41px;
+      }
+    }
+  }
+
+  &--body {
+    gap: 50px;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
+
+  &--header {
+    gap: 15px;
+
+    &__section {
+      border: 1px solid #2424241a;
+      gap: 25px;
+      width: 420px;
+      padding: 25px 20px;
+      transition: 0.2s;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 2px 2px 1px 2px #242424a1, inset 2px 2px 1px 2px #242424a1,
+          inset 10px 10px var(--bg-bb), 10px 10px var(--bg-bb);
+
+        &:active {
+          transform: scale(1);
+        }
+
+        @media (max-width: 900px) {
+          max-width: 800px;
+          width: 100%;
+        }
+
+        &--svgbox {
+          padding: 20px;
+          background-color: #2424241a;
+        }
+      }
+    }
+  }
+
+  &--footer {
+    max-width: 795px;
+    border: 1px solid #2424241a;
+    padding: 40px 40px 50px;
+
+    h3 {
+      @include mix.text(var(--bg-24), 38px, 600, 34px);
+      margin-bottom: 16px;
+
+      @media (max-width: 400px) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+
+    p {
+      @include mix.text(var(--bg-24), 16px, 400, 24px);
+      margin-bottom: 40px;
+      max-width: 565px;
+    }
+
+    &__form {
+      gap: 15px 20px;
+
+      input,
+      textarea {
+        width: 100%;
+        max-width: 345px;
+        padding: 20px 20px 19px;
+        outline: none;
+        border: 2px solid #3322441a;
+        @include mix.text(var(--bg-33), 16px, 400, 22px);
+
+        ::placeholder {
+          @include mix.text(var(--bg-33), 16px, 400, 22px);
+        }
+
+        &:focus {
+          box-shadow: -5px 5px 1px -1px var(--bg-bb);
+          border-color: #242424cc;
+        }
+      }
+
+      textarea {
+        max-width: 100%;
+        resize: none;
+        height: 150px;
+      }
+
+      button {
+        margin-top: 10px;
+        @include btn.btn(18px 45px, 39px, 1px solid var(--bg-bb), var(--bg-bb));
+        @include mix.text(var(--bg-white), 18px, 600, 24.5px);
+        transition: 0.4s;
+
+        &:hover {
+          transform: scale(1.05);
+          background-color: var(--bg-white);
+          color: var(--bg-bb);
+        }
+
+        &:active {
+          transform: scale(1);
+          background-color: var(--bg-bb);
+          color: var(--bg-white);
+        }
+      }
+    }
+  }
+}
+
+.map {
+  padding-top: 110px;
+  h2 {
+    @include mix.text(var(--bg-24), 38px, 500, 50px, 0.03em);
+    margin-bottom: 40px;
+  }
+}

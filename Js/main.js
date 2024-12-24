@@ -62,7 +62,7 @@ $(".owl-carousel-instagram").owlCarousel({
 
 const loading = document.getElementById("loading");
 
-const loadingDuration = 7000;
+const loadingDuration = 4000;
 
 setTimeout(() => {
   loading.classList.add("loading-none");
@@ -75,7 +75,7 @@ window.addEventListener("scroll", function () {
 let navbar = document.getElementById("header");
 
 function shrink() {
-  if (scrollY > 780) {
+  if (scrollY > 80) {
     navbar.classList.add("navbar-shrink");
   } else {
     navbar.classList.remove("navbar-shrink");
