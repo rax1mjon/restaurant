@@ -1,0 +1,71 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/flex" as flex;
+@use "../themes/dark--mode";
+
+.Newsletter {
+  transform: translateY(160px);
+  &--body {
+    background-color: var(--bg-bb);
+    border: 1px solid var(--bg-f6);
+    box-shadow: 22px 30px 95px 1px var(--bg-56);
+    @media (max-width: 500px) {
+      width: 91% !important;
+    }
+  }
+  &--top {
+    h3 {
+      @include mix.text(var(--bg-white), 23px, 700, 30px);
+      letter-spacing: 0.04em;
+    }
+    h2 {
+      @include mix.text(var(--bg-white), 48px, 500, 62px);
+      letter-spacing: 0.04em;
+      @media (max-width: 800px) {
+        font-size: 30px;
+        line-height: 50px;
+        font-weight: 600;
+      }
+    }
+    p {
+      @include mix.text(var(--bg-white), 16px, 400, 28px);
+      letter-spacing: 0.04em;
+    }
+  }
+  &--form {
+    width: 100%;
+    max-width: 811px;
+    
+     @media (max-width:650px) {
+        flex-direction: column;
+      }
+    input {
+      max-width: 635px;
+      width: 100%;
+      border: 1px solid var(--bg-f5);
+      padding: 12px 0 12px 19px;
+      @include mix.text(var(--bg-white), 16px, 500, 28px);
+
+      &::placeholder {
+        @include mix.text(var(--bg-aa), 16px, 500, 28px);
+        letter-spacing: 0.04em;
+      }
+    }
+    button {
+      @include btn.btn(
+        12px 32px,
+        100px,
+        1px solid var(--bg-white),
+        transparent
+      );
+      @include mix.text(var(--bg-white), 16px, 700, 28px);
+      transition: 0.5s;
+      letter-spacing: 0.04em;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

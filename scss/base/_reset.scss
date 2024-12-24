@@ -1,0 +1,220 @@
+@use "../utils/functions" as func;
+@use "../utils/mixins" as mix;
+@use "../utils/variables";
+* {
+  margin: 0;
+  padding: 0;
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+html,
+body {
+  @include mix.font(O);
+  scroll-behavior: smooth;
+  background-color: var(--bg--white);
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.5s !important;
+  &:hover {
+    text-decoration: underline;
+    transform: scale(1.2);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+img {
+  object-fit: cover;
+}
+
+.container {
+  $padding: 20;
+  width: 100%;
+  max-width: func.container(1920, 220, $padding);
+  margin: 0 auto;
+  padding: 0 $padding + px;
+}
+
+h1,
+h2,
+h3,
+a {
+  @include mix.font(M);
+}
+
+.backtop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 15px;
+  opacity: 0;
+  box-shadow: 0 0 5px 5px rgba(255, 0, 0, 0.678);
+  border-radius: 1000px 1000px 10px 20px;
+  transition: 0.5s;
+  backdrop-filter: blur(3px);
+  z-index: -33;
+  background-color: rgba(255, 0, 0, 0.489);
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(1);
+  }
+}
+
+.backtop-show {
+  opacity: 1;
+  z-index: 333;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(223, 60, 60);
+  z-index: 111111;
+}
+
+.loader {
+  display: block;
+  position: relative;
+  height: 32px;
+  width: 200px;
+  background: #fff;
+  border: 2px solid #fff;
+  color: rgb(223, 60, 60);
+  overflow: hidden;
+}
+
+.loading-none{
+  display: none;
+}
+
+.loader::before {
+  content: "";
+  background: rgb(223, 60, 60);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  animation: loading_302 10s linear infinite;
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 32px;
+  color: rgb(0, 255, 255);
+  mix-blend-mode: difference;
+  animation: percentage_302 10s linear infinite;
+}
+
+@keyframes loading_302 {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes percentage_302 {
+  0% {
+    content: "0%";
+  }
+
+  5% {
+    content: "5%";
+  }
+
+  10% {
+    content: "10%";
+  }
+
+  20% {
+    content: "20%";
+  }
+
+  30% {
+    content: "30%";
+  }
+
+  40% {
+    content: "40%";
+  }
+
+  50% {
+    content: "50%";
+  }
+
+  60% {
+    content: "60%";
+  }
+
+  70% {
+    content: "70%";
+  }
+
+  80% {
+    content: "80%";
+  }
+
+  90% {
+    content: "90%";
+  }
+
+  95% {
+    content: "95%";
+  }
+
+  96% {
+    content: "96%";
+  }
+
+  97% {
+    content: "97%";
+  }
+
+  98% {
+    content: "98%";
+  }
+
+  99% {
+    content: "99%";
+  }
+
+  100% {
+    content: "100%";
+  }
+}
+
+.navbar-shrink {
+  padding: 0 10px;
+  box-shadow: 0 10px 20px rgb(215, 40, 40);
+}

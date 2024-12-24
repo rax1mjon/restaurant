@@ -1,0 +1,39 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+@use "../components/dropdown" as drop;
+
+.hero {
+padding: 150px 0 0;
+
+  &--top {
+    margin-bottom: 60px;
+    gap: 8px;
+
+    svg {
+      fill: var(--bg-bb);
+      transform: rotate(180deg);
+    }
+
+    h2 {
+      @include mix.text(var(--bg-24), 64px, 500, 83px, 0.03em);
+
+      @media (max-width: 500px) {
+        font-size: 32px;
+        line-height: 41px;
+      }
+    }
+  }
+
+  &--bottom {
+    max-width: 720px;
+    width: 100%;
+
+    p {
+      @include mix.text(var(--bg-24),20px,400,32px,0.04em);
+    }
+  }
+}

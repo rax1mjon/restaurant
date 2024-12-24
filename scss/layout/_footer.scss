@@ -1,0 +1,62 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+@use "../components/dropdown" as drop;
+@use "../themes/dark--mode";
+
+.footer {
+  background-color: var(--bg-bb);
+  padding: 252px 0 40px;
+
+  @media (max-width: 1097px) {
+    &--top {
+      flex-wrap: wrap;
+      align-items: center !important;
+      row-gap: 80px;
+    }
+  }
+
+  &--unit {
+    margin: 0 auto;
+
+    @media (max-width: 1097px) {
+      &:nth-child(2) {
+        order: -1;
+        width: 100%;
+      }
+    }
+
+    h3 {
+      @include mix.text(var(--bg-white), 32px, 400, 41px, 0.04em);
+    }
+
+    address,
+    a,
+    p,
+    time {
+      @include mix.text(var(--bg-white), 16px, 400, 26px,0.04em);
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    svg {
+      fill: var(--bg-white);
+    }
+
+    .logo {
+      max-width: 336px;
+      width: 100%;
+      height: 117px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  p {
+     @include mix.text(var(--bg-white), 16px, 400, 26px,0.04em);
+  }
+}

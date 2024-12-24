@@ -1,0 +1,104 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+@use "../components/dropdown" as drop;
+
+
+
+.news {
+  padding: 150px 0;
+
+  &--top {
+    margin-bottom: 60px;
+    gap: 8px;
+
+    svg {
+      fill: var(--bg-bb);
+      transform: rotate(180deg);
+    }
+
+    h2 {
+      @include mix.text(var(--bg-24), 64px, 500, 83px, 0.03em);
+
+      @media (max-width: 500px) {
+        font-size: 32px;
+        line-height: 41px;
+      }
+    }
+  }
+
+  &--body {
+    &__row {
+      gap: 35px;
+    }
+
+    &__hidden {
+      display: none;
+      margin-top: 35px;
+    }
+    &__active {
+      display: flex;
+    }
+  }
+
+  &--card {
+    max-width: 410px;
+    border: 1px solid #2424241a;
+    border-radius: 14px;
+    transition: 0.6s;
+
+    &:hover {
+      transform: scale(1.04);
+      box-shadow: inset 0 -3em 3em var(--bg-56), -1px -1px 0 3px white,
+        0.3em 0.3em 1em var(--bg-bb);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+
+    @media (max-width: 1340px) {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 895px) {
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+
+    h3 {
+      @include mix.text(var(--bg-24), 24px, 500, 32px);
+      text-transform: capitalize;
+    }
+
+    p {
+      @include mix.text(var(--bg-aa), 14px, 400, 24px);
+    }
+
+    &__footer {
+      a {
+        @include mix.text(var(--bg-bb), 16px, 700, 16px, 0.04em);
+      }
+
+      span {
+        @include mix.text(var(--bg-24), 14px, 400, 19px);
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .View-More {
+    @include btn.btn(10px 30px, 100px, 1px solid var(--bg-bb), transparent);
+    @include mix.text(var(--bg-24), 16px, 600, 28px, 0.05em);
+    &:hover {
+      background-color: var(--bg-bb);
+      color: var(--bg-white);
+    }
+  }
+}

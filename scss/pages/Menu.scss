@@ -1,0 +1,234 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+@use "../components/dropdown" as drop;
+
+.tab {
+  padding: 150px 0 0;
+
+  &-wrapper {
+    display: flex;
+    align-items: start;
+    gap: 36px;
+
+    @media (max-width: 1050px) {
+      flex-direction: column;
+    }
+  }
+
+  &--body__wrapper {
+    background-color: var(--bg-bb);
+    max-width: 428px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 40px;
+
+    @media (max-width: 1050px) {
+      max-width: 100%;
+      background-color: var(--bg-white);
+
+      .ap-tab {
+        .ap-tab-list {
+          flex-direction: row;
+          align-items: center;
+          height: 65px;
+
+          overflow-y: hidden;
+          gap: 10px;
+          padding: 0;
+          margin-bottom: 50px;
+
+          li .active-tab {
+            background-color: var(--bg-bb);
+            color: var(--bg-white);
+          }
+        }
+
+        .ap-tab-link {
+          white-space: nowrap;
+          transform: scale(1.02) !important;
+          @include btn.btn(
+            10px 30px,
+            100px,
+            1px solid var(--bg-bb),
+            transparent
+          );
+          @include mix.text(var(--bg-24), 16px, 600, 28px, 0.05em);
+          &:active {
+            transform: scale(0.9) !important;
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    @include mix.text(var(--bg-white), 40px, 500, 54px);
+    margin-bottom: 40px;
+
+    @media (max-width: 1050px) {
+      display: none;
+    }
+  }
+
+  .ap-tab {
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0;
+      margin: 0 !important;
+    }
+
+    &-link {
+      white-space: nowrap;
+      transform: scale(1.02) !important;
+      @include btn.btn(
+        10px 30px,
+        100px,
+        1px solid var(--bg-white),
+        transparent
+      );
+      @include mix.text(var(--bg-white), 16px, 600, 28px, 0.05em);
+      &:active {
+        transform: scale(0.9) !important;
+      }
+    }
+
+    li .active-tab {
+      background-color: var(--bg-white);
+      color: var(--bg-24);
+    }
+  }
+
+  &--card {
+    position: relative;
+    display: inline-block;
+    max-width: 310px;
+    background-color: var(--bg-white);
+    padding: 20px 20px 40px;
+    border: 1px solid #2424241a;
+    border-radius: 14px;
+    transition: 0.6s;
+
+    &:hover {
+      transform: scale(1.08);
+      box-shadow: inset 0 -3em 3em var(--bg-56), -1px -1px 0 3px white,
+        0.3em 0.3em 1em var(--bg-bb);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+
+    img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    p {
+      @include mix.text(var(--bg-24), 18px, 600, 24px);
+      width: 101%;
+    }
+
+    span {
+      @include mix.text(var(--bg-bb), 24px, 700, 32px);
+    }
+  }
+}
+
+.instagram {
+  margin-top: 120px;
+  background-color: var(--bg-f4);
+  padding: 180px 0;
+  overflow: hidden;
+
+  @media (max-width: 1020px) {
+    &--wrapper {
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    .owl-carousel-instagram {
+      position: static !important;
+      margin-left: 20px;
+    }
+  }
+
+  &--body {
+    align-items: flex-start;
+    max-width: 450px;
+    gap: 8px;
+    span {
+      @include mix.text(var(--bg-24), 23px, 700, 30px, 0.04em);
+    }
+
+    svg {
+      fill: var(--bg-bb);
+    }
+
+    h2 {
+      @include mix.text(var(--bg-24), 48px, 500, 62px, 0.03em);
+
+      @media (max-width: 500px) {
+        font-size: 32px;
+        line-height: 41px;
+      }
+    }
+
+    p {
+      @include mix.text(var(--bg-aa), 16px, 400, 28px, 0.04em);
+    }
+
+    a {
+      @include btn.btn(10px 30px, 100px, 1px solid var(--bg-bb), transparent);
+      @include mix.text(var(--bg-24), 16px, 600, 28px, 0.05em);
+    }
+  }
+
+  .owl {
+    &-carousel {
+      max-width: calc((32px + 301px) * 3 + 56px);
+      left: 500px;
+    }
+
+    &-nav {
+      display: none;
+    }
+
+    &-dots {
+      display: none;
+    }
+  }
+
+  .item {
+    position: relative;
+    &:hover {
+      .item--hover {
+        transform: translateY(0);
+      }
+    }
+
+    &--hover {
+      position: absolute;
+      z-index: 22;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(
+        207.55deg,
+        rgba(0, 0, 0, 0.75) 1.5%,
+        rgba(0, 0, 0, 0.64) 98.62%
+      );
+      border-radius: 14px;
+      transform: translateY(446px);
+      width: 100%;
+      height: 100%;
+      transition: 0.5s;
+    }
+  }
+}

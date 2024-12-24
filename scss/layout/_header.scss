@@ -1,0 +1,94 @@
+@use "../utils/mixins" as mix;
+@use "../utils/variables" as var;
+@use "../components/buttons" as btn;
+@use "../layout/grid" as grid;
+@use "../layout/forms" as form;
+@use "../layout/flex" as flex;
+@use "../components/dropdown" as drop;
+
+.header {
+  background-color: var(--bg-bb);
+  transition: 0.5s;
+
+  &--activeNav {
+    display: none;
+    @media (max-width: 700px) {
+      display: flex !important;
+      &__close {
+        display: none;
+      }
+    }
+    .header--ofcanvas {
+      &__body {
+        background-color: var(--bg-white);
+      }
+      &__link {
+        color: var(--bg-bb);
+        &active {
+          border-color: var(--bg-bb);
+        }
+      }
+    }
+  }
+
+  &--nav {
+
+    &__logo {
+      position: relative;
+      z-index: 1046;
+    }
+
+    &__hamb {
+      width: 30px;
+      height: 30px;
+      border: 3px solid var(--bg-bb);
+      box-shadow: 0 0 2px 2px var(--bg-white);
+      gap: 3px;
+      span {
+        height: 5px;
+      }
+    }
+  }
+
+  &--ofcanvas {
+    background-color: var(--bg-bb);
+
+    &__header {
+      height: 73px;
+      button {
+        width: 30px;
+        height: 30px;
+        border: 3px solid var(--bg-bb);
+        box-shadow: 0 0 2px 2px var(--bg-white);
+        background-color: var(--bg-white) !important;
+        div {
+          position: relative;
+          transform: rotate(45deg);
+        }
+        span {
+          display: inline-block;
+          height: 5px;
+          &:nth-child(1) {
+            position: absolute;
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+
+    &__link {
+      display: inline-block;
+      color: var(--bg-white);
+      &active {
+        @include btn.btn(
+          10px 40px,
+          100px,
+          1px solid var(--bg-white),
+          transparent
+        );
+      }
+    }
+  }
+}
+
+
